@@ -1,0 +1,20 @@
+#include "Ultrasonic.h"
+Ultrasonic ultrasonic(12, 13);
+int distance;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Pass INC as a parameter to get the distance in inches
+
+  distance = ultrasonic.read(CM);
+
+  Serial.print("Distance in CM: ");
+  Serial.println(distance);
+  if (distance < 100) 
+  Serial.print("alert");
+  Serial.println();
+  delay(1000);
+}
